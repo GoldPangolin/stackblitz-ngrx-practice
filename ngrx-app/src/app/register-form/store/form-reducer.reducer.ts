@@ -17,4 +17,11 @@ export const initialState: State = {
   user: null,
 };
 
-export const reducer = createReducer(initialState);
+export const reducer = createReducer(
+  initialState,
+  on(FormReducerActions.registerSucces, ({user}): State => ({
+    user
+    
+  }))
+  
+  );

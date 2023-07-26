@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Store } from '@ngrx/store';
+import { formAction } from './store/form-actions';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -15,12 +16,13 @@ export class RegisterFormComponent {
 
   public formVal: any;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private store : Store) {}
 
   sendForm(): void {
     this.formVal = this.registerForm.value;
     JSON.parse(this.formVal);
     console.log(this.formVal);
-    
+    this.store.dispatch(formAction.Register);
+
   }
 }
