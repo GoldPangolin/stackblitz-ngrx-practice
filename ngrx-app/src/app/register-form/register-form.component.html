@@ -1,0 +1,21 @@
+<form [formGroup]="registerForm" (ngSubmit)="sendForm()">
+  <div class="form-row">
+    <label for="username">User Name:</label>
+    <input formControlName="username" type="text" />
+  </div>
+  <div class="form-row">
+    <label for="email">Email:</label>
+    <input formControlName="email" type="email" />
+  </div>
+  <div class="form-row">
+    <label for="password">Password:</label>
+    <input formControlName="password" type="password" />
+  </div>
+  <div class="form-row">
+    <button [disabled]="registerForm.invalid">Button Submit</button>
+  </div>
+</form>
+
+<div>
+  {{ formVal | json }}
+</div>
